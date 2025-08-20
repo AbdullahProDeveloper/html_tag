@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML সকল ট্যাগের রেফারেন্স</title>
+    <style>
+        /* বেসিক স্টাইলিং */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* হেডার স্টাইলিং */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .search-container {
+            margin: 1.5rem auto;
+            max-width: 600px;
+        }
+        
+        #tagSearch {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #tagSearch:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+        
+        /* মেইন কন্টেন্ট স্টাইলিং */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .intro h2 {
+            color: #2575fc;
+            margin-bottom: 1rem;
+        }
+        
+        .tag-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #6a11cb;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #6a11cb;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: #6a11cb;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .tags-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tag-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tag-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tag-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .tag-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .tag-category {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .tag-body {
+            padding: 20px;
+        }
+        
+        .tag-description {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .tag-example {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-bottom: 15px;
+            border-left: 4px solid #2575fc;
+        }
+        
+        .tag-output {
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        
+        /* ফুটার স্টাইলিং */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* অ্যানিমেশন */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tags-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tag-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>HTML সকল ট্যাগের রেফারেন্স</h1>
+            <p>সমস্ত HTML ট্যাগ, তাদের ব্যবহার এবং উদাহরণ</p>
+            <div class="search-container">
+                <input type="text" id="tagSearch" placeholder="ট্যাগ খুঁজুন...">
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="intro">
+            <h2>HTML ট্যাগ কি?</h2>
+            <p>HTML (HyperText Markup Language) ওয়েব পেজ তৈরি করার জন্য ব্যবহৃত হয়। প্রতিটি ট্যাগ ওয়েব পেজের কন্টেন্টের একটি নির্দিষ্ট অংশকে নির্দেশ করে। নিচে সমস্ত HTML ট্যাগের তালিকা দেওয়া হলো।</p>
+        </section>
+        
+        <div class="tag-categories">
+            <button class="category-btn active" data-category="all">সব ট্যাগ</button>
+            <button class="category-btn" data-category="basic">বেসিক</button>
+            <button class="category-btn" data-category="formatting">ফরম্যাটিং</button>
+            <button class="category-btn" data-category="forms">ফর্ম</button>
+            <button class="category-btn" data-category="media">মিডিয়া</button>
+            <button class="category-btn" data-category="semantic">সিমান্টিক</button>
+        </div>
+        
+        <div class="tags-container">
+            <!-- Basic Tags -->
+            <div class="tag-card" data-category="basic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;html&gt;</div>
+                    <div class="tag-category">বেসিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">এটি HTML ডকুমেন্টের রুট এলিমেন্ট। সমস্ত HTML কন্টেন্ট এই ট্যাগের মধ্যে থাকে।</p>
+                    <div class="tag-example">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;পেজ টাইটেল&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    কন্টেন্ট এখানে
+  &lt;/body&gt;
+&lt;/html&gt;</div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="basic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;head&gt;</div>
+                    <div class="tag-category">বেসিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">এই ট্যাগে মেটাডাটা থাকে, যেমন পেজের টাইটেল, স্টাইলশিট, স্ক্রিপ্ট ইত্যাদি।</p>
+                    <div class="tag-example">&lt;head&gt;
+  &lt;title&gt;আমার ওয়েবসাইট&lt;/title&gt;
+  &lt;meta charset="UTF-8"&gt;
+&lt;/head&gt;</div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="basic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;body&gt;</div>
+                    <div class="tag-category">বেসিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">এই ট্যাগে ওয়েব পেজের দৃশ্যমান কন্টেন্ট থাকে।</p>
+                    <div class="tag-example">&lt;body&gt;
+  &lt;h1&gt;শিরোনাম&lt;/h1&gt;
+  &lt;p&gt;প্যারাগ্রাফ টেক্সট&lt;/p&gt;
+&lt;/body&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Formatting Tags -->
+            <div class="tag-card" data-category="formatting">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;h1&gt; to &lt;h6&gt;</div>
+                    <div class="tag-category">ফরম্যাটিং ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">এই ট্যাগগুলো হেডিং তৈরি করতে ব্যবহৃত হয়। h1 সবচেয়ে বড় এবং h6 সবচেয়ে ছোট।</p>
+                    <div class="tag-example">&lt;h1&gt;বড় শিরোনাম&lt;/h1&gt;
+&lt;h2&gt;মাঝারি শিরোনাম&lt;/h2&gt;
+&lt;h3&gt;ছোট শিরোনাম&lt;/h3&gt;</div>
+                    <div class="tag-output">
+                        <h1 style="font-size: 1.5rem; margin: 0;">বড় শিরোনাম</h1>
+                        <h2 style="font-size: 1.3rem; margin: 0;">মাঝারি শিরোনাম</h2>
+                        <h3 style="font-size: 1.1rem; margin: 0;">ছোট শিরোনাম</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="formatting">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;p&gt;</div>
+                    <div class="tag-category">ফরম্যাটিং ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">প্যারাগ্রাফ তৈরি করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;p&gt;এটি একটি প্যারাগ্রাফ। HTML দিয়ে ওয়েব পেজ তৈরি করা হয়।&lt;/p&gt;</div>
+                    <div class="tag-output">
+                        <p style="margin: 0;">এটি একটি প্যারাগ্রাফ। HTML দিয়ে ওয়েব পেজ তৈরি করা হয়。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="formatting">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;b&gt;</div>
+                    <div class="tag-category">ফরম্যাটিং ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">টেক্সটকে বোল্ড (গাঢ়) করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;p&gt;এটি &lt;b&gt;গাঢ়&lt;/b&gt; টেক্সট।&lt;/p&gt;</div>
+                    <div class="tag-output">
+                        <p style="margin: 0;">এটি <b>গাঢ়</b> টেক্সট।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Tags -->
+            <div class="tag-card" data-category="forms">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;form&gt;</div>
+                    <div class="tag-category">ফর্ম ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">ইউজার ইনপুট নেওয়ার জন্য ফর্ম তৈরি করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;form action="/submit" method="post"&gt;
+  &lt;input type="text" name="username"&gt;
+  &lt;input type="submit" value="জমা দিন"&gt;
+&lt;/form&gt;</div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="forms">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;input&gt;</div>
+                    <div class="tag-category">ফর্ম ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">ইউজার ইনপুট ফিল্ড তৈরি করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;input type="text" placeholder="আপনার নাম"&gt;
+&lt;input type="password" placeholder="পাসওয়ার্ড"&gt;
+&lt;input type="email" placeholder="ইমেইল"&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Media Tags -->
+            <div class="tag-card" data-category="media">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;img&gt;</div>
+                    <div class="tag-category">মিডিয়া ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">ইমেজ যোগ করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;img src="image.jpg" alt="বর্ণনা" width="200" height="100"&gt;</div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="media">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;audio&gt;</div>
+                    <div class="tag-category">মিডিয়া ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">অডিও কন্টেন্ট যোগ করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  আপনার ব্রাউজার অডিও সাপোর্ট করে না।
+&lt;/audio&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Semantic Tags -->
+            <div class="tag-card" data-category="semantic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;header&gt;</div>
+                    <div class="tag-category">সিমান্টিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">পেজ বা সেকশনের হেডার নির্দেশ করে।</p>
+                    <div class="tag-example">&lt;header&gt;
+  &lt;h1&gt;ওয়েবসাইটের শিরোনাম&lt;/h1&gt;
+  &lt;p&gt;লোগো বা ট্যাগলাইন&lt;/p&gt;
+&lt;/header&gt;</div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="semantic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;footer&gt;</div>
+                    <div class="tag-category">সিমান্টিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">পেজ বা সেকশনের ফুটার নির্দেশ করে।</p>
+                    <div class="tag-example">&lt;footer&gt;
+  &lt;p&gt;কপিরাইট তথ্য&lt;/p&gt;
+  &lt;p&gt;যোগাযোগের তথ্য&lt;/p&gt;
+&lt;/footer&gt;</div>
+                </div>
+            </div>
+            
+            <!-- আরও ট্যাগ যোগ করা যেতে পারে -->
+            <div class="tag-card" data-category="basic">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;a&gt;</div>
+                    <div class="tag-category">বেসিক ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">হাইপারলিংক তৈরি করতে এই ট্যাগ ব্যবহার করা হয়।</p>
+                    <div class="tag-example">&lt;a href="https://example.com"&gt;এটি একটি লিংক&lt;/a&gt;</div>
+                    <div class="tag-output">
+                        <a href="#" style="color: #2575fc;">এটি একটি লিংক</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="formatting">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;ul&gt; এবং &lt;li&gt;</div>
+                    <div class="tag-category">ফরম্যাটিং ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">অবিন্যস্ত তালিকা (unordered list) এবং তালিকার আইটেম তৈরি করতে।</p>
+                    <div class="tag-example">&lt;ul&gt;
+  &lt;li&gt;প্রথম আইটেম&lt;/li&gt;
+  &lt;li&gt;দ্বিতীয় আইটেম&lt;/li&gt;
+  &lt;li&gt;তৃতীয় আইটেম&lt;/li&gt;
+&lt;/ul&gt;</div>
+                    <div class="tag-output">
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>প্রথম আইটেম</li>
+                            <li>দ্বিতীয় আইটেম</li>
+                            <li>তৃতীয় আইটেম</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tag-card" data-category="formatting">
+                <div class="tag-header">
+                    <div class="tag-name">&lt;div&gt;</div>
+                    <div class="tag-category">ফরম্যাটিং ট্যাগ</div>
+                </div>
+                <div class="tag-body">
+                    <p class="tag-description">কন্টেন্টের একটি বিভাগ বা কন্টেইনার তৈরি করতে।</p>
+                    <div class="tag-example">&lt;div style="background: lightblue; padding: 10px;"&gt;
+  &lt;p&gt;এই কন্টেন্ট একটি ডিভের মধ্যে আছে&lt;/p&gt;
+&lt;/div&gt;</div>
+                    <div class="tag-output">
+                        <div style="background: lightblue; padding: 10px;">
+                            <p style="margin: 0;">এই কন্টেন্ট একটি ডিভের মধ্যে আছে</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>HTML সকল ট্যাগের রেফারেন্স গাইড | তৈরি করেছেন আপনার নাম</p>
+        <p>© ২০২৩ - সমস্ত অধিকার সংরক্ষিত</p>
+    </footer>
+
+    <script>
+        // সার্চ ফাংশনালিটি
+        document.getElementById('tagSearch').addEventListener('input', function(e) {
+            const searchText = e.target.value.toLowerCase();
+            const tagCards = document.querySelectorAll('.tag-card');
+            
+            tagCards.forEach(card => {
+                const tagName = card.querySelector('.tag-name').textContent.toLowerCase();
+                const tagDescription = card.querySelector('.tag-description').textContent.toLowerCase();
+                
+                if (tagName.includes(searchText) || tagDescription.includes(searchText)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // ক্যাটেগরি ফিল্টার ফাংশনালিটি
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // সক্রিয় বাটন আপডেট করুন
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                const tagCards = document.querySelectorAll('.tag-card');
+                
+                tagCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
